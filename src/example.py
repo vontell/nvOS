@@ -1,6 +1,6 @@
 ###############################################################################
 ##
-##      A simple example of an X gate on a qubit
+##      A simple example for characterizing a setup
 ##      Author: Aaron Vontell
 ##
 ###############################################################################
@@ -10,18 +10,31 @@ import Sequence
 import FPGA
 
 
-# First we connect to the board
-address = '0.0.0.0:2452'
-kc707 = FPGA(address)
-kc707.connect()
-ck707.load("KC707_DEFAULT")
+class SimpleExample(EnvExperiment):
+	'''
+	Does a characterization of available qubits
+	'''
+	
+	def build(self):
+		address = '0.0.0.0:2452'
+        self.pip = FPGA(address)
+		
+	@kernel
+	def run(self):
 
-# Now we construct a pulse sequence
-kc707.X("Q0")
+        # First we connect to the board
+        pip.connect(self)
+        pip.load("PIPISTRELLO_DEFAULT")
 
-# Finally, we compile and execute the sequence
-def experiment_callback(results):
-    #plot results here
-    result.show()
+        # Now we run a blocking experiment which characterizes the setup
+        pip.characterize()
 
-kc707.execute(experiment_callback)
+        # Now we construct a pulse sequence
+        pip.X("Q0")
+
+        # Finally, we compile and execute the sequence
+        def experiment_callback(results):
+            #plot results here
+            result.show()
+
+        pip.execute(experiment_callback)

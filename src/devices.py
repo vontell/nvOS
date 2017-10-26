@@ -7,6 +7,8 @@
 
 from artiq.experiment import *
 from artiq.sim import devices
+from qubit import Qubit
+from pipistrello import Board
 
 def get_simulator():
     '''
@@ -20,8 +22,12 @@ def get_simulator():
         dmgr[wo] = devices.WaveOutput(dmgr, wo)
     
 
-def get_kc707_default()
-
+def get_pipistrello_default(setup):
+    
+    # First, create the qubits
+    q0 = Qubit("Q0", {"mw": "ttl0", "green": "ttl1", "apd": "pmt0"}, None)
+    setup.qubits = [q0]
+    # Sometimes we will set a driver here, but this is done previously for the pip
 
 class SimpleSimulation(EnvExperiment):
     """Simple simulation"""

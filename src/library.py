@@ -5,6 +5,28 @@
 ##
 ###############################################################################
 
+from artiq.experiment import *
+
+@kernel
+def rabi(qubit, board, params, callback):
+    '''
+    Performs a Rabi oscillation on a given qubit, using the driver defined by
+    board. Extra params can be passed for the max time that we would like to
+    apply pulses for. If callback is None, then Rabi will block. Otherwise, 
+    call callback when finished.
+    '''
+    
+    # At this point we have a kernelized board, a qubit spec... we should be able
+    # to perform a Rabi oscillation (hopefully blocking), and then store the
+    # results somewhere
+    
+    resolution = params["resolution"]
+    max_length = params["max_length"]
+    times = []
+    
+    board.reset()
+    
+
 def active_reset(qubit, params, callback):
     '''
     Actively resets the QUBIT to the 0 state with 99.5% probability.

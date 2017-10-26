@@ -13,11 +13,11 @@ class Qubit:
     #   T1 - a T1 time, or None if not available
     #   T2 - a T2 time, or None if not available
     #   temp - a temperatue, or None if not available
-    #   channels - a dictionary of ports to the sources that we use
+    #   channels - a dictionary of sources to the ports that we use
     #   static_field - information regarding any static magnetic field (just for information purposes)
     #   last_characterized - a dictionary of properties to timestamps
     
-    def __init__(name, channels, readout_method, initialize=False, properties=None):
+    def __init__(name, channels, readout_method, properties=None):
         '''
         Creates a definition of a qubit given a name, dictionary of channels, and readout method
         :param name: A name for this qubit
@@ -33,16 +33,9 @@ class Qubit:
             self.properties = ['T1', 'T2', 'TEMP']
         else:
             self.properties = properties
-        
-        if initialize:
-            update_properties(self.properties.keys())
-            
-    
-    def update_properties(self, props):
-        pass
     
     def get_channels(self):
         pass
     
-    def get_readout():
+    def get_readout(self):
         pass
