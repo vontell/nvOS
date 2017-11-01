@@ -8,6 +8,7 @@
 import Qubit
 import Sequence
 import FPGA
+from artiq.experiment import *
 
 
 class SimpleExample(EnvExperiment):
@@ -28,13 +29,15 @@ class SimpleExample(EnvExperiment):
 
         # Now we run a blocking experiment which characterizes the setup
         pip.characterize()
+        
+        # Print the characterization results
 
-        # Now we construct a pulse sequence
-        pip.X("Q0")
-
-        # Finally, we compile and execute the sequence
-        def experiment_callback(results):
-            #plot results here
-            result.show()
-
-        pip.execute(experiment_callback)
+#        # Now we construct a pulse sequence
+#        pip.X("Q0")
+#
+#        # Finally, we compile and execute the sequence
+#        def experiment_callback(results):
+#            #plot results here
+#            result.show()
+#
+#        pip.execute(experiment_callback)

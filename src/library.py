@@ -22,7 +22,11 @@ def rabi(qubit, board, params, callback):
     
     resolution = params["resolution"]
     max_length = params["max_length"]
-    times = []
+    
+    # Prepare for the experiment
+    board.reset()
+    
+    while i < max_length
     
     board.reset()
     
