@@ -27,17 +27,17 @@ class SimpleExample(EnvExperiment):
         pip.connect(self)
         pip.load("PIPISTRELLO_DEFAULT")
 
-        # Now we run a blocking experiment which characterizes the setup
+        # Now we run a blocking experiment which characterizes the setup,
+        # and then displays the results
         pip.characterize()
-        
-        # Print the characterization results
+        pip.display_characterization()
 
-#        # Now we construct a pulse sequence
-#        pip.X("Q0")
-#
-#        # Finally, we compile and execute the sequence
-#        def experiment_callback(results):
-#            #plot results here
-#            result.show()
-#
-#        pip.execute(experiment_callback)
+        # Now we construct a pulse sequence
+        pip.X(Math.PI, "Q0")
+        pip.Y(Math.PI/2, "Q0")
+
+        # Finally, we compile and execute the sequence
+        def experiment_callback(results):
+            results.show()
+
+        pip.execute(experiment_callback)
