@@ -14,6 +14,8 @@ class Board:
         self.experiment = experiment
         experiment.setattr_device('core')
 
+        self.core = experiment.core
+
         # Set the attributes for each TTL output (0-14), PMT input, and LED
 
         experiment.setattr_device('pmt0')
@@ -81,7 +83,8 @@ class Board:
         Resets the board This should be called at the start of every 'run'
         command in your experiment
         """
-        self.get_core().reset()
+        print("Attempting to reset")
+        self.core.reset()
 
     @kernel
     def find_latency(self, max_value, tries, timeout, ttl):

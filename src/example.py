@@ -19,12 +19,10 @@ class SimpleExample(EnvExperiment):
         address = '0.0.0.0:2452'
         self.pip = FPGA(address, verbosity=1)   # Initializes an FPGA object to use as the base of our setup
         self.pip.load("PIPISTRELLO_DEFAULT")    # Defines the ports and methods for acting on this setup
+        self.pip.connect(self)                  # We connect the experiment to the FPGA
 
     @kernel
     def run(self):
-
-        # We connect the kernel to the FPGA
-        self.pip.connect(self)
 
         # Now we run a blocking experiment which characterizes the setup,
         # and then displays the results

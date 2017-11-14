@@ -53,7 +53,8 @@ class FPGA:
         """
 
         # As an initial test, we will simply attempt to pulse the LEDs
-        self.driver.led_test()
+        self.driver.reset()
+        #self.driver.led_test()
         
         # # First, characterize each qubit, if we have any
         # for qubit in self.qubits:
@@ -76,4 +77,4 @@ class FPGA:
 
     def print_log(self, verbosity, message):
         if verbosity >= self.verbosity:
-            print("FPGA LOG: %s".format(message))
+            print("FPGA LOG:", message)
