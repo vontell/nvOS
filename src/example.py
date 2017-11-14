@@ -17,7 +17,7 @@ class SimpleExample(EnvExperiment):
 
     def __init__(self):
         self.pip = None
-        super()
+        super(self)
 
     def build(self):
         address = '0.0.0.0:2452'
