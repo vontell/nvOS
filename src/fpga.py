@@ -6,8 +6,8 @@
 ##
 ###############################################################################
 
-from src.devices import *
-from src.sandbox.pipistrello import Board
+from devices import *
+from sandbox.pipistrello import Board
 from library import *
 from artiq.experiment import kernel
 

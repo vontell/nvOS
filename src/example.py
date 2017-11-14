@@ -5,7 +5,7 @@
 ##
 ###############################################################################
 
-from src.fpga import FPGA
+from fpga import FPGA
 from artiq.experiment import *
 
 

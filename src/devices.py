@@ -5,7 +5,7 @@
 ##
 ###############################################################################
 
-from src.qubit import Qubit
+from qubit import Qubit
 
 
 def get_pipistrello_default(setup):
