@@ -15,10 +15,6 @@ class SimpleExample(EnvExperiment):
     qubit.
     """
 
-    def __init__(self):
-        self.pip = None
-        super(self)
-
     def build(self):
         address = '0.0.0.0:2452'
         self.pip = FPGA(address, verbosity=1)   # Initializes an FPGA object to use as the base of our setup
@@ -32,7 +28,7 @@ class SimpleExample(EnvExperiment):
 
         # Now we run a blocking experiment which characterizes the setup,
         # and then displays the results
-        pip.characterize()
+        self.pip.characterize()
 
         # pip.display_characterization()
         #

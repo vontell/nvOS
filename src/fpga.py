@@ -76,4 +76,4 @@ class FPGA:
 
     def print_log(self, verbosity, message):
         if verbosity >= self.verbosity:
-            print(format("FPGA LOG: %s", message))
+            print("FPGA LOG: %s".format(message))
