@@ -41,43 +41,43 @@ def active_reset(qubit, params, callback):
     '''
 
 def pi_over_2(qubit, params, callback):
-    '''
+    """
     Applies a PI/2 pulse to the given QUBIT, given PARAMs. Calls a CALLBACK
     when the experiment is finished.
     :param qubit: The qubit which we are applying this pulse to.
     :param params: Experiment parameters, if needed.
     :param callback: A function to call with either an error or result.
-    '''
+    """
     pass
 
 def pi(qubit, params, callback):
-    '''
+    """
     Applies a PI pulse to the given QUBIT, given PARAMs. Calls a CALLBACK
     when the experiment is finished.
     :param qubit: The qubit which we are applying this pulse to.
     :param params: Experiment parameters, if needed.
     :param callback: A function to call with either an error or result.
-    '''
+    """
     pass
 
 def ramsey(qubit, params, callback):
-    '''
+    """
     Applies a Ramsey to the given QUBIT, given PARAMs. Calls a CALLBACK
     when the experiment is finished.
     :param qubit: The qubit which we are applying this pulse to.
     :param params: Experiment parameters, if needed.
     :param callback: A function to call with either an error or result.
-    '''
+    """
     pass
 
 def hahn_echo(qubit, params, callback):
-    '''
+    """
     Applies a Hahn echo to the given QUBIT, given PARAMs. Calls a CALLBACK
     when the experiment is finished.
     :param qubit: The qubit which we are applying this pulse to.
     :param params: Experiment parameters, if needed.
     :param callback: A function to call with either an error or result.
-    '''
+    """
     pass
 
 ###############################################################################

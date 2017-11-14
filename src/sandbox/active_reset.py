@@ -2,16 +2,16 @@ from artiq.experiment import *
 from pipistrello import Board
 
 class ActiveReset(EnvExperiment):
-	'''
-	Does an active reset of a given qubit.
-	'''
-	
-	def build(self):
-		self.board = Board(self)
-		
-	@kernel
-	def run(self):
-		
+    '''
+    Does an active reset of a given qubit.
+    '''
+
+    def build(self):
+        self.board = Board(self)
+
+    @kernel
+    def run(self):
+
 #		self.board.reset()
 #		self.board.get_core().break_realtime()
 #		delay(2*s)
