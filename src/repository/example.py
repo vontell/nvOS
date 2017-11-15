@@ -4,7 +4,10 @@
 ##      Author: Aaron Vontell
 ##
 ###############################################################################
-
+import sys
+import os.path
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from fpga import FPGA
 from artiq.experiment import *
 
@@ -26,6 +29,7 @@ class SimpleExample(EnvExperiment):
 
         # Now we run a blocking experiment which characterizes the setup,
         # and then displays the results
+        self.pip.initialize()
         self.pip.characterize()
 
         # pip.display_characterization()

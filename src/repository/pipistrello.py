@@ -83,7 +83,6 @@ class Board:
         Resets the board This should be called at the start of every 'run'
         command in your experiment
         """
-        print("Attempting to reset")
         self.core.reset()
 
     @kernel

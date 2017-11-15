@@ -9,7 +9,7 @@
 from devices import *
 from repository.pipistrello import Board
 from library import *
-from artiq.experiment import kernel
+from artiq.experiment import *
 
 
 class FPGA:
@@ -44,17 +44,22 @@ class FPGA:
         """
         self.driver = Board(kern)
         self.print_log(1, "CONNECTION SUCCESSFUL")
-            
+
+    @kernel
+    def initialize(self):
+        self.driver.reset()
+        #self.print_log(1, "INITIALIZATION SUCCESSFUL")
+
+    @kernel
     def characterize(self, name=None):
         """
         Characterizes each qubit through a series of experiments, such as Rabi oscillations.
         Results are stored by timestamp or by a given name.
         :param name: An optional name for this characterization experiment
         """
-
         # As an initial test, we will simply attempt to pulse the LEDs
-        self.driver.reset()
-        #self.driver.led_test()
+        self.driver.led_test()
+        self.print_log(1, "CHARACTERIZATION SUCCESSFUL")
         
         # # First, characterize each qubit, if we have any
         # for qubit in self.qubits:
@@ -75,6 +80,7 @@ class FPGA:
         """
         return self.characterization_results[key]
 
+    #@rpc(flags={"async"})
     def print_log(self, verbosity, message):
         if verbosity >= self.verbosity:
             print("FPGA LOG:", message)
